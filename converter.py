@@ -10,10 +10,17 @@ def fahrenheit_to_celsius(fahrenheit):
 
 
 if __name__ == "__main__":
-	while True:
-		raw = input("请输入摄氏温度（输入q退出）：")
-		if raw == "q":
-			printf("再见！")
-			break
-		c = float(raw)
-		print(f"{c}°C = {celsius_to_fahrenheit(c)}°F")
+    while True:
+        raw = input("请输入温度（如 25C 或 77F，输入 q 退出）：")
+        if raw == "q":
+            print("再见！")
+            break
+        unit = raw[-1].upper()
+        value = float(raw[:-1])
+        if unit == "C":
+            print(f"{value}°C = {celsius_to_fahrenheit(value)}°F")
+        elif unit == "F":
+            print(f"{value}°F = {fahrenheit_to_celsius(value)}°C")
+        else:
+            print("单位无效，请以 C 或 F 结尾")
+
